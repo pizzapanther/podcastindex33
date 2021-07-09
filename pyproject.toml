@@ -7,6 +7,7 @@ authors = [
 ]
 dependencies = [
     "httpx~=0.18",
+    "typer~=0.3",
 ]
 requires-python = ">=3.7"
 dynamic = ["classifiers"]
@@ -14,6 +15,9 @@ license = {text = "MIT"}
 
 [project.urls]
 homepage = "https://github.com/pizzapanther/podcastindex33"
+
+[project.scripts]
+pci = "podcastindex33.run:run"
 
 [build-system]
 requires = ["pdm-pep517"]
@@ -24,4 +28,5 @@ build-backend = "pdm.pep517.api"
 
 [tool.pdm.scripts]
 _.env_file = ".env"
-
+publish = "pdm publish -u ${PDM_PUBLISH_USERNAME} -P ${PDM_PUBLISH_PASSWORD}"
+pci = "python podcastindex33/run.py"
