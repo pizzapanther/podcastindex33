@@ -1,16 +1,20 @@
 import typer
 
-from typing import Optional
+import json
+from typing import Optional, List
 
 import podcastindex33 as pci
 
 
 def main(
-  api_key: Optional[str] = None,
-  api_secret: Optional[str] = None,
+  method: str,
+  api_key: str = typer.Argument(None, envvar="PCI_API_KEY"),
+  api_secret: str = typer.Argument(None, envvar="PCI_API_SECRET"),
+  args: Optional[List[str]] = [],
 ):
-  print('narf')
-
+  api = pci.PodcastIndex(api_key, api_secret)
+  result = getattr(api, method)(*args)
+  print(json.dumps(result, indent=2))
 
 def run ():
   typer.run(main)
