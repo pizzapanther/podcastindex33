@@ -1,7 +1,7 @@
 [project]
 name = "podcastindex33"
-version = "0.1.0"
-description = ""
+version = "0.2.0"
+description = "Wrapper around the Podcast Index 2.0 API"
 authors = [
     {name = "Paul Bailey", email = "paul@neutron.studio"},
 ]
@@ -13,7 +13,7 @@ dynamic = ["classifiers"]
 license = {text = "MIT"}
 
 [project.urls]
-homepage = ""
+homepage = "https://github.com/pizzapanther/podcastindex33"
 
 [build-system]
 requires = ["pdm-pep517"]
@@ -21,3 +21,7 @@ build-backend = "pdm.pep517.api"
 
 [tool]
 [tool.pdm]
+
+[tool.pdm.scripts]
+_.env_file = ".env"
+
