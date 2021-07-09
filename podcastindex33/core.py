@@ -44,8 +44,5 @@ class PodcastIndex:
 
     raise Exception('Invalid lookup')
 
-  def get_podcasts(self, bytag=False):
-    if bytag:
-      return self.method('get', '/podcasts/bytag', params={'podcast-value': ''})
-
-    raise Exception('Invalid lookup')
+  def get_podcasts_bytag(self):
+    return self.method('get', '/podcasts/bytag', params={'podcast-value': ''})
